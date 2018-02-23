@@ -40,7 +40,7 @@ class GridFragment : Fragment() {
                 viewItem.recyclerView.removeOnLayoutChangeListener(this)
                 val layoutManager = viewItem.recyclerView.layoutManager
                 val viewAtPosition = layoutManager.findViewByPosition(MainActivity.currentPosition)
-                if (viewAtPosition != null || layoutManager.isViewPartiallyVisible(viewAtPosition,false, true)) {
+                if (viewAtPosition == null || layoutManager.isViewPartiallyVisible(viewAtPosition,false, true)) {
                     viewItem.recyclerView.post { layoutManager.scrollToPosition(MainActivity.currentPosition) }
                 }
             }
